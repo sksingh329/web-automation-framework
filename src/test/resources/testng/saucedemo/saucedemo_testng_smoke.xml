@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GoRestSuite" parallel="methods" thread-count="2">
+    <parameter name="envName" value="qa" />
+    <test name="UsersSmokeTest">
+
+        <classes>
+            <class name="com.saucedemo.test.LoginTest" />
+        </classes>
+    </test>
+</suite>
