@@ -1,6 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SauceDemoSuite" parallel="methods" thread-count="3">
+<suite name="SauceDemoSuite" parallel="methods" thread-count="1">
     <parameter name="envName" value="qa" />
+    <parameter name="browserName" value="chrome" />
     <test name="SauceDemoSmokeTest">
         <classes>
             <class name="com.saucedemo.test.LoginTest" />
