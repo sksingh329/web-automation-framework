@@ -1,11 +1,13 @@
 package com.saucedemo.app.pom;
 
+import com.framework.core.web.selenium.WebElementActionUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
     private final WebDriver driver;
+    private final WebElementActionUtils webElementActionUtils;
 
     private static final By usernameInput = By.id("user-name");
     private static final By passwordInput = By.id("password");
@@ -13,17 +15,17 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
+        webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     private void doLogin(String username, String password){
         if(!username.equals("")){
-            driver.findElement(usernameInput).sendKeys(username);
+            webElementActionUtils.enterText(usernameInput,username);
         }
         if(!password.equals("")){
-            driver.findElement(passwordInput).sendKeys(password);
+            webElementActionUtils.enterText(passwordInput,password);
         }
-
-        driver.findElement(loginButton).click();
+        webElementActionUtils.clickElement(loginButton);
     }
 
     public LoginErrorPage invalidLogin(String username, String password){
