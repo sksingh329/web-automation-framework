@@ -20,12 +20,12 @@ public class LoginPage {
 
     private void doLogin(String username, String password){
         if(!username.equals("")){
-            webElementActionUtils.enterText(usernameInput,username);
+            webElementActionUtils.enterText(usernameInput,username,0);
         }
         if(!password.equals("")){
-            webElementActionUtils.enterText(passwordInput,password);
+            webElementActionUtils.enterText(passwordInput,password,0);
         }
-        webElementActionUtils.clickElement(loginButton);
+        webElementActionUtils.clickElement(loginButton,0);
     }
 
     public LoginErrorPage invalidLogin(String username, String password){
