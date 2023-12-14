@@ -5,25 +5,26 @@ import com.framework.core.web.selenium.element.WebElementActionUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage {
+public class ProductDetailsPage extends BasePage {
     private final WebDriver driver;
     private WebElementActionUtils webElementActionUtils;
     private final MenuFragment menu;
 
-    public HomePage(WebDriver driver){
+    private final By addToCartButton = By.xpath("//button[text()='Add to cart']");
+    private final By backToProductsButton = By.id("back-to-products");
+
+    public ProductDetailsPage(WebDriver driver){
         super(driver);
         this.driver = driver;
         this.webElementActionUtils = new WebElementActionUtils(driver);
         this.menu = new MenuFragment(driver);
     }
 
-    public MenuFragment getMenu(){
-        return menu;
+    public void clickAddToCartButton(){
+        webElementActionUtils.clickElement(addToCartButton,0);
     }
-
-    public ProductDetailsPage clickProduct(String productName){
-        webElementActionUtils.clickElement(By.linkText(productName),0);
-        return new ProductDetailsPage(driver);
+    public HomePage clickBackToProductsButton(){
+        webElementActionUtils.clickElement(backToProductsButton,0);
+        return new HomePage(driver);
     }
-
 }

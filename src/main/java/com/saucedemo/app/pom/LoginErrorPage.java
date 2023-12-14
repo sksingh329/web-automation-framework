@@ -1,6 +1,6 @@
 package com.saucedemo.app.pom;
 
-import com.framework.core.web.selenium.WebElementActionUtils;
+import com.framework.core.web.selenium.element.WebElementActionUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

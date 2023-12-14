@@ -2,10 +2,11 @@ package com.saucedemo.test;
 
 import com.saucedemo.app.pom.HomePage;
 import com.saucedemo.app.pom.LoginErrorPage;
+import com.saucedemo.test.base.BaseLoginTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseLoginTest {
 
     @Test
     public void invalidLoginWithBlankUserNameAndPasswordTest(){
@@ -31,7 +32,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void validLoginTest(){
         String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        HomePage homePage = loginPage.validLogin("standard_user","secret_sauce");
-        Assert.assertEquals(homePage.getPageUrl(),expectedUrl);
+        HomePage inventoryPage = loginPage.validLogin("standard_user","secret_sauce");
+        Assert.assertEquals(inventoryPage.getPageUrl(),expectedUrl);
     }
 }
