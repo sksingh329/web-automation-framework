@@ -30,4 +30,10 @@ public class BaseTest {
     public void tearDown(){
         WebDriverFactory.getInstance().releaseDriver();
     }
+
+    protected static double extractNumericValue(String currencyValue) {
+        // Use regular expression to extract the numeric value from the currency string
+        String numericValue = currencyValue.replaceAll("[^\\d.]", "");
+        return Double.parseDouble(numericValue);
+    }
 }

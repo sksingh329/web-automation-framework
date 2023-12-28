@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class WebElementUtils {
         private final WebDriver driver;
@@ -22,5 +23,13 @@ public class WebElementUtils {
             } else {
                 return driver.findElement(locator);
             }
+        }
+        public List<WebElement> findElements(By locator, int timeoutInSeconds) {
+            List<WebElement> webElementList = null;
+            if (timeoutInSeconds > 0) {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            }
+            return driver.findElements(locator);
         }
 }

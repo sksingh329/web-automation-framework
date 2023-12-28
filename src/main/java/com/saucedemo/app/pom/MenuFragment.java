@@ -3,6 +3,7 @@ package com.saucedemo.app.pom;
 import com.framework.core.web.selenium.base.BasePage;
 import com.framework.core.web.selenium.element.WebElementActionUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Locale;
@@ -17,6 +18,7 @@ public class MenuFragment extends BasePage {
     private final By resetAppStateLink = By.linkText("Reset App State");
     private final By logoutLink = By.linkText("Logout");
     private final By cartItemCountLabel = By.xpath("//span[@class='shopping_cart_badge']");
+    private final By cartLink = By.xpath("//div[@id='shopping_cart_container']/a");
 
     public MenuFragment(WebDriver driver){
         super(driver);
@@ -53,8 +55,18 @@ public class MenuFragment extends BasePage {
         return new LoginPage(driver);
     }
 
+    public CartPage clickCartLink(){
+        webElementActionUtils.clickElement(cartLink,0);
+        return new CartPage(driver);
+    }
+
     public String getCartItemCount(){
-        return webElementActionUtils.getLabelText(cartItemCountLabel,0);
+        try{
+            return webElementActionUtils.getLabelText(cartItemCountLabel,0);
+        }
+        catch (NoSuchElementException ex){
+            return "0";
+        }
     }
 
 
