@@ -5,6 +5,8 @@
     <test name="SauceDemoSmokeTest">
         <classes>
             <class name="com.saucedemo.test.LoginTest" />
+            <class name="com.saucedemo.test.AddCartTest"/>
+            <class name="com.saucedemo.test.ProductSearchAndFilterTest"/>
         </classes>
     </test>
 </suite>

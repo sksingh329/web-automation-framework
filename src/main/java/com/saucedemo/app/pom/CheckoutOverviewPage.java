@@ -12,7 +12,6 @@ import java.util.List;
 
 public class CheckoutOverviewPage extends BasePage {
     private final WebDriver driver;
-    private final WebElementActionUtils webElementActionUtils;
     public final MenuFragment menu;
 
     private final By finishButton = By.id("finish");
@@ -22,7 +21,6 @@ public class CheckoutOverviewPage extends BasePage {
     public CheckoutOverviewPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        webElementActionUtils = new WebElementActionUtils(driver);
         this.menu = new MenuFragment(driver);
     }
 

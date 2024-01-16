@@ -7,9 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckoutPage extends BasePage {
 
-    private WebDriver driver;
-
-    private WebElementActionUtils webElementActionUtils;
+    private final WebDriver driver;
 
     private final By firstNameInput = By.id("first-name");
     private final By lastNameInput = By.id("last-name");
@@ -19,7 +17,6 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     private void submitCheckoutForm(String firstName, String lastName, String postalCode){

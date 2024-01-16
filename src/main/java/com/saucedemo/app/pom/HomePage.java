@@ -2,7 +2,6 @@ package com.saucedemo.app.pom;
 
 import com.framework.core.web.selenium.base.BasePage;
 import com.framework.core.web.selenium.element.HandleDropdown;
-import com.framework.core.web.selenium.element.WebElementActionUtils;
 import com.saucedemo.app.products.ProductItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,16 +12,14 @@ import java.util.List;
 
 public class HomePage extends BasePage {
     private final WebDriver driver;
-    private WebElementActionUtils webElementActionUtils;
     private final MenuFragment menu;
 
-    private By productDiv = By.xpath("//div[@class='inventory_item_description']");
-    private By productSortDropDown = By.xpath("//select[@data-test='product_sort_container']");
+    private final By productDiv = By.xpath("//div[@class='inventory_item_description']");
+    private final By productSortDropDown = By.xpath("//select[@data-test='product_sort_container']");
 
     public HomePage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        this.webElementActionUtils = new WebElementActionUtils(driver);
         this.menu = new MenuFragment(driver);
     }
 

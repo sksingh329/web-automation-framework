@@ -8,14 +8,11 @@ import org.openqa.selenium.WebDriver;
 public class ThankYouPage extends BasePage {
     private WebDriver driver;
 
-    private WebElementActionUtils webElementActionUtils;
-
     private final By thankYouMessageLabel = By.xpath("//h2[@class='complete-header']");
 
     public ThankYouPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     public String getThankYouMessageLabel(){

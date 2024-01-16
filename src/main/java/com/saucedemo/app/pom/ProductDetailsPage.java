@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductDetailsPage extends BasePage {
     private final WebDriver driver;
-    private WebElementActionUtils webElementActionUtils;
     private final MenuFragment menu;
 
     private final By addToCartButton = By.xpath("//button[text()='Add to cart']");
@@ -21,7 +20,6 @@ public class ProductDetailsPage extends BasePage {
     public ProductDetailsPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        this.webElementActionUtils = new WebElementActionUtils(driver);
         this.menu = new MenuFragment(driver);
     }
 

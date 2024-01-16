@@ -7,16 +7,13 @@ import org.openqa.selenium.WebDriver;
 
 public class CartPage extends BasePage {
 
-    private WebDriver driver;
-
-    private WebElementActionUtils webElementActionUtils;
+    private final WebDriver driver;
 
     private final By checkoutButton = By.id("checkout");
 
     public CartPage(WebDriver driver){
         super(driver);
         this.driver = driver;
-        this.webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     public CheckoutPage clickCheckoutButton(){

@@ -1,21 +1,21 @@
 package com.saucedemo.app.pom;
 
+import com.framework.core.web.selenium.base.BasePage;
 import com.framework.core.web.selenium.element.WebElementActionUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     private final WebDriver driver;
-    private final WebElementActionUtils webElementActionUtils;
 
     private static final By usernameInput = By.id("user-name");
     private static final By passwordInput = By.id("password");
     private static final By loginButton = By.id("login-button");
 
     public LoginPage(WebDriver driver){
+        super(driver);
         this.driver = driver;
-        webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     private void doLogin(String username, String password){

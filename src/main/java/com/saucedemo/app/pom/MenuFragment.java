@@ -10,7 +10,6 @@ import java.util.Locale;
 
 public class MenuFragment extends BasePage {
     private final WebDriver driver;
-    private final WebElementActionUtils webElementActionUtils;
 
     private final By menuDiv = By.xpath("//div[@class='bm-menu-wrap']");
     private final By openMenuButton = By.id("react-burger-menu-btn");
@@ -23,7 +22,6 @@ public class MenuFragment extends BasePage {
     public MenuFragment(WebDriver driver){
         super(driver);
         this.driver = driver;
-        webElementActionUtils = new WebElementActionUtils(driver);
     }
 
     private boolean isMenuOpen(){

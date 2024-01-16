@@ -5,12 +5,15 @@ import com.saucedemo.test.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductSearchAndFilterTest extends BaseTest {
+    private static double extractDecimalValue(String value) {
+        // Remove non-numeric characters and parse to double
+        String numericValue = value.replaceAll("[^\\d.]", "");
+        return Double.parseDouble(numericValue);
+    }
     /*
     On home page, check that product exists can also have test if product should not exist
      */
@@ -75,9 +78,5 @@ public class ProductSearchAndFilterTest extends BaseTest {
         Assert.assertEquals(productPriceInDecimalAfterSortList, productPriceInDecimalList);
 
     }
-    private static double extractDecimalValue(String value) {
-        // Remove non-numeric characters and parse to double
-        String numericValue = value.replaceAll("[^\\d.]", "");
-        return Double.parseDouble(numericValue);
-    }
+
 }
